@@ -14,7 +14,12 @@ class EmployeePayroll{
     }
 
     get name(){ return this._name; }
-    set name(name){ this._name = name; }
+    set name(name){ 
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if(nameRegex.test(name))
+            this._name = name;
+        else throw 'Name is Incorrect!'; 
+    }
 
     toString(){
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -27,8 +32,12 @@ class EmployeePayroll{
 let employeePayroll = new EmployeePayroll(1, "Mark", 30000);
 console.log(employeePayroll.toString());
 employeePayroll.id = 0;
-employeePayroll.name = "John";
-console.log(employeePayroll.toString());
-
+try {
+    employeePayroll.name = "Jo";
+    console.log(employeePayroll.toString());
+}
+catch(e){
+    console.error(e);
+}
 let newEmployeePayroll = new EmployeePayroll(1, "Terrisa", 30000, "F", new Date());
 console.log(newEmployeePayroll.toString());
