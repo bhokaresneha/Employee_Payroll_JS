@@ -1,8 +1,12 @@
 console.log("Employee Payroll Using JS ");
 class EmployeePayroll{
    
+//     id;
+//     salary;
+//     gender;
+//     startDate;
 
-    constructor(...params){
+     constructor(...params){
         this.id = params[0];
         this.name = params[1];
         this.salary = params[2];
