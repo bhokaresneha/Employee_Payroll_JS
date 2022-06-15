@@ -2,7 +2,14 @@ console.log("Employee Payroll Using JS ");
 class EmployeePayroll{
    
 
-    constructor(...params){
+
+//     id;
+//     salary;
+//     gender;
+//     startDate;
+
+     constructor(...params){
+
         this.id = params[0];
         this.name = params[1];
         this.salary = params[2];
@@ -62,6 +69,7 @@ class EmployeePayroll{
         else throw 'Start date is incorrect!';
     }
 
+
         toString(){
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const empDate = this.startDate === undefined ? "undefined" : 
@@ -98,6 +106,7 @@ try{
 //salary
 try{
 let newEmployeePayroll = new EmployeePayroll(1, "Terrisa", 30000, "F",new Date());
+
 console.log(newEmployeePayroll.toString());
 }
 catch(e){
