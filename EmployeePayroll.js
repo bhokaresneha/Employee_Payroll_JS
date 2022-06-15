@@ -1,12 +1,15 @@
 console.log("Employee Payroll Using JS ");
 class EmployeePayroll{
    
+
+
 //     id;
 //     salary;
 //     gender;
 //     startDate;
 
      constructor(...params){
+
         this.id = params[0];
         this.name = params[1];
         this.salary = params[2];
@@ -59,17 +62,13 @@ class EmployeePayroll{
         else
         throw('salary is Incorrect!'); 
     }
+    get startDate(){ return this._startDate; }
+    set startDate(startDate){
+        if(startDate <= Date.now())
+            this._startDate = startDate;
+        else throw 'Start date is incorrect!';
+    }
 
-    // get startDate(){
-    //     return this._startDate;
-    // }
-    // set startDate(startDate){ 
-    //     let startDateRegex = RegExp('^  $');
-    //     if(startDateRegex.test(startDate))
-    //         this._startDate = startDate;
-    //     else
-    //    throw('date is Incorrect!'); 
-    // }
 
         toString(){
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -106,16 +105,19 @@ try{
     console.error(e);}
 //salary
 try{
-let newEmployeePayroll = new EmployeePayroll(1, "Terrisa", 0000, "F", new Date());
+let newEmployeePayroll = new EmployeePayroll(1, "Terrisa", 30000, "F",new Date());
+
 console.log(newEmployeePayroll.toString());
 }
 catch(e){
     console.error(e);}
 
-//     //date
-// try{
-//     let newEmployeePayroll = new EmployeePayroll(1, "Terrisa", 0000, "F", new Date());
-//     console.log(newEmployeePayroll.toString());
-//     }
-//     catch(e){
-//         console.error(e);}
+     //date
+// date validation
+try{
+    let newEmployeePayroll = new EmployeePayroll(1, "John", 45000, "M", "June 13, 2025");
+    console.log(newEmployeePayroll.toString());
+}
+catch(e){
+    console.log(e);
+}
